@@ -1,0 +1,17 @@
+{
+  "name": "lagou",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^2.1.4",
+    "node-xlsx": "^0.12.1",
+    "superagent": "^3.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": ""
+  },
+  "author": "",
+  "license": "ISC"
+}
