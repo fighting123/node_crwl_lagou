@@ -59,7 +59,7 @@ function exportExcel() {
 
 // 写xlsx
   var buffer = xlsx.build(dataArr)
-  fs.writeFile('./result3.xlsx', buffer, function (err)
+  fs.writeFile('./result.xlsx', buffer, function (err)
     {
       if (err)
         throw err;
