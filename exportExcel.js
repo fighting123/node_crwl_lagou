@@ -7,15 +7,14 @@ function exportExcel() {
   list.forEach((item, index) => {
     let path = `./data/${item}`
     let obj = fs.readFileSync(path, 'utf-8')
-    let content = JSON.parse(obj).content.hrInfoMap
-    let arr = [['UserId', 'Phone', 'PositionName', 'ReceiveEmail', 'RealName', 'Portrait', 'CanTalk', 'UserLevel']]
-    for (var item in content) {
-      let data = content[item]
-      arr.push([data.userId, data.phone, data.positionName, data.receiveEmail, data.realName, data.portrait, data.canTalk,  data.userLevel])
-    }
+    let content = JSON.parse(obj).content.positionResult.result
+    let arr = [['companyFullName', 'createTime', 'workYear', 'education', 'city', 'positionName', 'positionAdvantage', 'companyLabelList', 'salary']]
+    content.forEach((contentItem) => {
+      arr.push([contentItem.companyFullName, contentItem.phone, contentItem.workYear, contentItem.education, contentItem.city, contentItem.positionName, contentItem.positionAdvantage, contentItem.companyLabelList.join(','), contentItem.salary])
+    })
     dataArr[index] = {
       data: arr,
-      name: path.split('./data/')[1] // 名字不能包含 /
+      name: path.split('./data/')[1] // 名字不能包含 \ / ? * [ ]
     }
   })
 
