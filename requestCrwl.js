@@ -15,7 +15,7 @@ function controlRequest(city, position, indexCallback) {
       superagent
         .post(`https://www.lagou.com/jobs/positionAjax.json?needAddtionalResult=false&city=${city}&kd=${position}&pn=1`)
         .send({
-          'pn': totalPage,
+          'pn': 1,
           'kd': position,
           'first': true
         })
@@ -50,7 +50,7 @@ function controlRequest(city, position, indexCallback) {
           .send({
             'pn': totalPage,
             'kd': position,
-            'first': true
+            'first': false
           })
           .set(options.options)
           .end((err, res) => {
